@@ -10,16 +10,19 @@ int main(int argc, char **argv)
 			throw std::runtime_error("Error : usage : instance must be a non null positive number");
 
 		std::string command = "./ft_irc_bot";
+		std::string prefix;
 		command += " " + std::string(argv[2]); // ip
 		command += " " + std::string(argv[3]); // pass
 		command += " " + std::string(argv[4]); // port
 		command += " " + std::string(argv[5]); // bot name
+		prefix = command;
 		for (int i = 0; i < atoi(argv[1]); i++)
 		{
+			command = prefix;
 			command += std::to_string(i);
+			command += " &";
 			std::cout << "start command : " << command << std::endl;
 			std::system(command.c_str());
-			command.erase(command.end() - 1, command.end());
 		}
 		return (0);
 	}

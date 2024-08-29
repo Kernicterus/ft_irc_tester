@@ -90,6 +90,7 @@ void	Bot::connectBot()
 		throw std::runtime_error("connect() failed with error: " + std::string(strerror(errno)));
 	authentification();
 	createBotChannel();
+	sleep(10);
 }
 
 
